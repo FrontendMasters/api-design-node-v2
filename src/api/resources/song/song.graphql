@@ -27,9 +27,11 @@ input NewSong {
 }
 
 extend type Query {
+  allSongs: [Song]!
   Song(id: ID!): Song!
 }
 
 extend type Mutation {
   updateSong(input: UpdatedSong!): Song!
+  newSong(input: NewSong!): Song!
 }
