@@ -7,7 +7,7 @@
 * basic API knowledge
 
 ## Dependencies
-* Mongo (if you don't have this, signup for a free mongo DB at mLab)
+* Mongo (if you don't have this, signup for a free mongo DB [at mLab](https://mlab.com/))
 * Node 6+
 * Yarn or Npm (Yarn recommended)
 
