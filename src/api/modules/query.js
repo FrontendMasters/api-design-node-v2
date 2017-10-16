@@ -1,29 +1,30 @@
 import merge from 'lodash.merge'
+const testData = {message: 'hello'}
 
+// These are generic methods used in the generic controllers for all models
 export const controllers = {
   createOne(model, body) {
-    return model.create(body)
+    return Promise.resolve(testData)
   },
 
   updateOne(docToUpdate, update) {
-    merge(docToUpdate, update)
-    return docToUpdate.save()
+    return Promise.resolve(testData)
   },
 
   deleteOne(docToDelete) {
-    return docToDelete.remove()
+    return Promise.resolve(testData)
   },
 
   getOne(docToGet) {
-    return Promise.resolve(docToGet)
+    return Promise.resolve(testData)
   },
 
   getAll(model) {
-    return model.find({})
+    return Promise.resolve(testData)
   },
 
   findByParam(model, id) {
-    return model.findById(id)
+    return Promise.resolve(testData)
   }
 }
 
