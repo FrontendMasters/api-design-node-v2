@@ -1,9 +1,10 @@
 import { User } from '../resources/user/user.model'
 import jwt from 'jsonwebtoken'
-import config from '../../config'
 import expressJwt from 'express-jwt'
+const jwtSecret = 'blueRhinoJumps'
 
-const checkToken = expressJwt({ secret: config.secrets.JWT_SECRET })
+const checkToken = expressJwt({ secret: jwtSecret })
+const disableAuth = false
 
 export const signin = (req, res, next) => {
   // req.user will be there from the middleware
@@ -14,7 +15,7 @@ export const signin = (req, res, next) => {
 }
 
 export const decodeToken = () => (req, res, next) => {
-  if (config.disableAuth) {
+  if (disableAuth) {
     return next()
   }
   // make it optional to place token on query string
@@ -86,8 +87,8 @@ export const verifyUser = () => (req, res, next) => {
 
 export const signToken = (id) => jwt.sign(
   {id},
-  config.secrets.JWT_SECRET,
-  {expiresIn: config.expireTime}
+  jwtSecret,
+  {expiresIn: '30d'}
 )
 
 export const protect = [decodeToken(), getFreshUser()]
