@@ -1,27 +1,27 @@
 import createApiSpec from '~/apiSpecs'
 import chai, { expect } from 'chai'
-import { Playlist } from './playlist.model'
+import { Playlist, schema } from './playlist.model'
+import mongoose from 'mongoose'
 
 describe('Playlist Model', () => {
   it('should have tilte', () => {
-    const playlist = new Playlist({songs: [], favorite: true})
-
-    return playlist.validate()
-      .catch(e => expect(e.errors.title).to.exist)
+    expect(schema.title).to.exist
+    expect(schema.title.type).to.eql(String)
+    expect(schema.title.required).to.be.an('array')
   })
 
   it('should have songs', () => {
-    const playlist = new Playlist({title: 'test', favorite: true})
-
-    return playlist.validate()
-      .catch(e => expect(e.errors.songs).to.exist)
+    expect(schema.songs).to.exist
+    expect(schema.songs).to.be.an('array')
+    expect(schema.songs[0].type).to.eql(mongoose.Schema.Types.ObjectId)
+    expect(schema.songs[0].ref).to.eql('song')
   })
 
   it('should have favorite', () => {
-    const playlist = new Playlist({songs: [], title: 'test'})
-
-    return playlist.validate()
-      .catch(e => expect(e.errors.favorite).to.exist)
+    expect(schema.favorite).to.exist
+    expect(schema.favorite.type).to.eql(Boolean)
+    expect(schema.favorite.required).to.equal(true)
+    expect(schema.favorite.default).to.equal(false)
   })
 })
 createApiSpec(

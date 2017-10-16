@@ -1,20 +1,19 @@
 import { expect } from 'chai'
 import createApiSpec from '~/apiSpecs'
-import { User } from './user.model'
+import { User, schema } from './user.model'
 
-describe('User Model', () => {
+describe.only('User Model', () => {
   it('should have username', () => {
-    const user = new User({passwordHash: 'asdf'})
-
-    return user.validate()
-      .catch(e => expect(e.errors.username).to.exist)
+    expect(schema.username).to.exist
+    expect(schema.username.type).to.eql(String)
+    expect(schema.username.required).to.equal(true)
+    expect(schema.username.unique).to.equal(true)
   })
 
   it('should have passwordHash', () => {
-    const user = new User({username: 'student'})
-
-    return user.validate()
-      .catch(e => expect(e.errors.passwordHash).to.exist)
+    expect(schema.passwordHash).to.exist
+    expect(schema.username.type).to.eql(String)
+    expect(schema.username.required).to.equal(true)
   })
 })
 

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const playlistSchema = new mongoose.Schema({
+export const schema = {
   title: {
     type: String,
     required: [true, 'Playlist must have title']
@@ -16,6 +16,8 @@ const playlistSchema = new mongoose.Schema({
     required: true,
     default: false
   }
-})
+}
+
+const playlistSchema = new mongoose.Schema(schema)
 
 export const Playlist = mongoose.model('playlist', playlistSchema)
