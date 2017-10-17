@@ -3,6 +3,8 @@ import '../src/api/resources/playlist/playlist.model'
 import '../src/api/resources/song/song.model'
 import mongoose from 'mongoose'
 import config from '~/config'
+import { graphql } from 'graphql'
+import { schema } from '../src/api/graphQLRouter'
 
 mongoose.Promise = global.Promise
 
@@ -27,4 +29,8 @@ export const dropDb = () => {
     useMongoClient: true
   })
     .then(() => Promise.all(mongoose.modelNames().map(removeModel)))
+}
+
+export const runQuery = async (query, variables, user) => {
+  return graphql(schema, query, {}, {user}, variables)
 }

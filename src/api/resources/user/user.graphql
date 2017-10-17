@@ -7,6 +7,7 @@ type User {
 }
 
 input UpdatedUser {
+  id: ID!
   username: String!
 }
 
@@ -15,5 +16,5 @@ type Query {
 }
 
 type Mutation {
-  updateMe: User!
+  updateMe(input: UpdatedUser!): User!
 }

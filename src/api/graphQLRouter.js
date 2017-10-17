@@ -12,7 +12,7 @@ const baseSchema = `
   }
 `
 
-const schema = makeExecutableSchema({
+export const schema = makeExecutableSchema({
   typeDefs: [
     baseSchema,
     userType,
