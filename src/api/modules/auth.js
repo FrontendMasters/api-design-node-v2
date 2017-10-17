@@ -31,7 +31,13 @@ export const decodeToken = () => (req, res, next) => {
   checkToken(req, res, next)
 }
 
-export const getFreshUser = () => (req, res, next) => {
+export const getFreshUser = () => async (req, res, next) => {
+  if (config.disableAuth) {
+    await User.remove()
+    req.user = await User.create({username: 'student1', passwordHash: '12334eefs'})
+    return next()
+  }
+
   return User.findById(req.user.id)
     .then(function(user) {
       if (!user) {
