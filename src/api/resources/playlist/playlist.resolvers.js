@@ -1,4 +1,5 @@
 import { Playlist } from './playlist.model'
+import { Song } from '../song/song.model'
 
 const getPlaylist = (_, {id}) => {
   return Playlist.findById(id).exec()
@@ -27,5 +28,15 @@ export const playlistResolvers = {
   Mutation: {
     newPlaylist,
     updatePlaylist
+  },
+
+  Playlist: {
+    async songs(playlist) {
+      const populated = await playlist
+        .populate('songs')
+        .execPopulate()
+
+      return populated.songs
+    }
   }
 }
