@@ -1,7 +1,7 @@
 import { makeExecutableSchema } from 'graphql-tools'
 import { userType, userResolvers } from './resources/user'
-import { songType, songResolvers } from './resources/song'
-import { playlistType, playlistResolvers } from './resources/playlist'
+import { songType } from './resources/song'
+import { playlistType } from './resources/playlist'
 import merge from 'lodash.merge'
 import { graphqlExpress } from 'apollo-server-express'
 
