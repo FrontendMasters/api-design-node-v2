@@ -1,6 +1,7 @@
 type User {
   id: ID!
   username: String!
+  playlists: [Playlist]!
   createdAt: String!
   updatedAt: String!
 }
