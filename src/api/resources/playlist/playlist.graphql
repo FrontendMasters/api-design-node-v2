@@ -14,7 +14,7 @@ input UpdatedPlaylist {
 
 input NewPlaylist {
   title: String
-  songs: [NewSong]
+  songs: [ID!]
   favorite: Boolean
 }
 
