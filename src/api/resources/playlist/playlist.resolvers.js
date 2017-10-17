@@ -32,6 +32,7 @@ export const playlistResolvers = {
 
   Playlist: {
     async songs(playlist) {
+      console.log('getting songs')
       const populated = await playlist
         .populate('songs')
         .execPopulate()

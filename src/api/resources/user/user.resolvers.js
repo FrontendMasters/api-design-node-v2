@@ -3,6 +3,7 @@ import { Playlist } from '../playlist/playlist.model'
 import merge from 'lodash.merge'
 
 const getMe = (_, __, {user}) => {
+  console.log('getting user')
   return user
 }
 
@@ -21,6 +22,7 @@ export const userResolvers = {
 
   User: {
     playlists() {
+      console.log('getting playlist')
       return Playlist.find({}).exec()
     }
   }

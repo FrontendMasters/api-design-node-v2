@@ -5,6 +5,7 @@ type Song {
   album: String
   artist: String
   rating: Int!
+  test: String!
   favorite: Boolean!
 }
 

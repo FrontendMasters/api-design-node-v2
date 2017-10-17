@@ -27,5 +27,11 @@ export const songResolvers = {
   Mutation: {
     newSong,
     updateSong
+  },
+  Song: {
+    test() {
+      console.log('getting test')
+      return 'test'
+    }
   }
 }
