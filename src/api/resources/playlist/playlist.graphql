@@ -1,4 +1,5 @@
 type Playlist {
+  id: ID!
   title: String!
   songs: [Song]!
   favorite: Boolean!
@@ -9,4 +10,9 @@ input UpdatedPlaylist {
   title: String
   songs: [NewSong]
   favorite: Boolean
+}
+
+extend type Query {
+  Playlist(id: ID!): Playlist!
+  allPlaylists: [Playlist]!
 }

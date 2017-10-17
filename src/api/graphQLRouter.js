@@ -20,7 +20,9 @@ const schema = makeExecutableSchema({
   ],
   resolvers: merge(
     {},
-    userResolvers
+    userResolvers,
+    songResolvers,
+    playlistResolvers
   )
 })
 
