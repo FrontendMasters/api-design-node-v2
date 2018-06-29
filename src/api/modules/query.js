@@ -49,14 +49,14 @@ export const deleteOne = (model) => (req, res, next) => {
 }
 
 export const getOne = (model) => (req, res, next) => {
-  return controllers.getOne(req.docToUpdate)
+  return controllers.getOne(req.docFromId)
     .then(doc => res.status(200).json(doc))
     .catch(error => next(error))
 }
 
 export const getAll = (model) => (req, res, next) => {
   return controllers.getAll(model)
-    .then(docs => res.json(docs))
+    .then(docs => res.status(200).json(docs))
     .catch(error => next(error))
 }
 
@@ -66,7 +66,7 @@ export const findByParam = (model) => (req, res, next, id) => {
       if (!doc) {
         next(new Error('Not Found Error'))
       } else {
-        req.docFromId
+        req.docFromId = doc
         next()
       }
     })
