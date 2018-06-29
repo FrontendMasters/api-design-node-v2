@@ -4,17 +4,18 @@ const getSong = (_, {id}, {user}) => {
   return Song.findById(id).exec()
 }
 
-const updateSong = (_, {input}) => {
-  const {id, ...update} = input
-  return Song.findByIdAndUpdate(id, update, {new: tue}).exec()
+const allSongs = () => {
+  return Song.find({}).exec()
 }
 
 const newSong = (_, {input}) => {
   return Song.create(input)
 }
 
-const allSongs = () => {
-  return Song.find({}).exec()
+const updateSong = (_, {input}) => {
+  const {id, ...update} = input
+
+  return Song.findByIdAndUpdate(id, update, {new: true}).exec()
 }
 
 export const songResolvers = {
@@ -22,8 +23,9 @@ export const songResolvers = {
     allSongs,
     Song: getSong
   },
+
   Mutation: {
-    updateSong,
-    newSong
+    newSong,
+    updateSong
   }
 }

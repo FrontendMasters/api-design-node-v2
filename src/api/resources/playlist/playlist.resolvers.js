@@ -1,18 +1,31 @@
 import { Playlist } from './playlist.model'
 
-const getPlaylist = (_, __, {user}) => {
-  return user
+const getPlaylist = (_, {id}) => {
+  return Playlist.findById(id).exec()
+}
+
+const allPlaylists = () => {
+  return Playlist.find({}).exec()
+}
+
+const newPlaylist = (_, {input}) => {
+  return Playlist.create(input)
 }
 
 const updatePlaylist = (_, {input}) => {
+  const {id, ...update} = input
 
+  return Playlist.findByIdAndUpdate(id, update, {new: true}).exec()
 }
 
-export const songResolvers = {
+export const playlistResolvers = {
   Query: {
-    Playlist: getPlaylist
+    allPlaylists,
+    Playlist: getPlaylist,
   },
+
   Mutation: {
+    newPlaylist,
     updatePlaylist
   }
 }

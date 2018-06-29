@@ -1,4 +1,5 @@
 type Song {
+  id: ID!
   title: String!
   url: String!
   album: String
@@ -27,11 +28,11 @@ input NewSong {
 }
 
 extend type Query {
-  allSongs: [Song]!
   Song(id: ID!): Song!
+  allSongs: [Song]!
 }
 
 extend type Mutation {
-  updateSong(input: UpdatedSong!): Song!
   newSong(input: NewSong!): Song!
+  updateSong(input: UpdatedSong!): Song!
 }
