@@ -29,7 +29,7 @@
     "chai-http": "^3.0.0",
     "graphql-tag": "^2.4.2",
     "mocha": "^4.0.1",
-    "mocha-webpack": "next",
+    "mocha-webpack": "^0.7.0",
     "raw-loader": "^0.5.1",
     "source-map-support": "^0.5.0",
     "start-server-webpack-plugin": "^2.2.0",
