@@ -17,13 +17,12 @@ export const controllers = {
   getOne(docToGet) {
     return Promise.resolve(docToGet)
   },
-
   getAll(model) {
-    return model.find({})
+    return model.find({}).exec()
   },
 
   findByParam(model, id) {
-    return model.findById(id)
+    return model.findById(id).exec()
   }
 }
 
