@@ -19,11 +19,11 @@ export const controllers = {
   },
 
   getAll(model) {
-    return model.find({})
+    return model.find({}).exec()
   },
 
   findByParam(model, id) {
-    return model.findById(id)
+    return model.findById(id).exec()
   }
 }
 
