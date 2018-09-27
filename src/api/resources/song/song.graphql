@@ -19,10 +19,10 @@ input UpdatedSong {
 }
 
 input NewSong {
-  title: String
-  url: String
+  title: String!
+  url: String!
   album: String
-  artist: String
+  artist: String!
   rating: Int
   favorite: Boolean
 }
