@@ -8,11 +8,22 @@ type Playlist {
 input UpdatedPlaylist {
   id: ID!
   title: String
-  songs: [NewSong]
+  songs: [ID!]
+  favorite: Boolean
+}
+
+input NewPlaylist {
+  title: String
+  songs: [ID!]
   favorite: Boolean
 }
 
 extend type Query {
   Playlist(id: ID!): Playlist!
   allPlaylists: [Playlist]!
+}
+
+extend type Mutation {
+  newPlaylist(input: NewPlaylist!): Playlist!
+  updatePlaylist(input: UpdatedPlaylist!): Playlist!
 }
