@@ -5,6 +5,9 @@ export const userRouter = express.Router()
 
 userRouter.param('id', userController.findByParam)
 
+//userRouter.get('/',dthdhr) <------ mutli routing without using .route
+//userRouter.post('/',rhrdh) <------ mutli routing without using .route
+
 userRouter.route('/')
   .get(userController.getAll)
   .post(userController.createOne)
