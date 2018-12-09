@@ -1,5 +1,5 @@
-# Front End Masters: API Design with Node V2
-> Learn to build with Node, Express, Mongo, and GraphQL
+# Frontend Masters: API Design with Node V2
+Learn to build with Node, Express, Mongo, and GraphQL with the [API Design in Node.js v2 course](https://frontendmasters.com/courses/api-node-rest-graphql/)
 
 ## What you'll need to know
 * JavaScript
